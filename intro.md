@@ -118,27 +118,25 @@ git branch <name of branch>
 
 ## What is Github and what is it used for?
 
-```
 Github is a free cloud-based storing of Git repository. Makes it easy for anyone that uses Git to store code in a place that you can access from anywhere. It also makes it easy to collaborate with others by sharing you repository and people easily clone your repository to their local computer. Github makes it easy to take a look at other peoples projects for inspiration or just out of curiosity.
-```
+
+---
 
 ## How do you work as multiple people in the same project?
 
-```
 Through Github multiple people can access and clone down your repository to their locla computer and start coding themselves. They can later push their changes to the Github repository for you to pull. You need to be careful to not get a merge conflict which essentially means that you both have been working in the same place in a file and trying to push both changes.
 
 Make sure that you push your files to the right branch in Github. In bigger projects you work on multiple branches and you need to make sure that you push your files and changes to the right branch.
 
-If you make a misstake and want to stop the merge you can use "git merge --abort" to delete the merge.
+If you make a misstake and want to stop the merge you can use "git merge --abort" and want to resolve the problem before the merge happens.
 
 You can also use "git checkout" to take away a specific part of the merge, for example your changes in the merge conflict.
-```
+
+---
 
 ## How do you solve merge conflicts?
 
-```
 Through Vscode, which I use, merge conflict a relatively easy to fix. It puts in the merge conflict together in a single file and then you delete and save what you want to keep just as you do normally.
-```
 
 [edge]: https://img.shields.io/badge/Microsoft_Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white
 [edge-url]: https://www.microsoft.com/edge
