@@ -39,7 +39,7 @@
 ```
 git version
 
-git commit -m
+
 Output:
 git version 2.39.0.windows.1
 ```
@@ -187,10 +187,16 @@ git branch
 
 [Official documentation](https://git-scm.com/docs/git-reset)
 
-### Used to undo local changes to the state of a Git repo. It changes the repository to the previous commit deleting all changes made since that commit.
+### Used to undo local changes to the state of a Git repo. It changes the repository to the previous commit deleting all changes made since that commit. You can also jump back to a previous commit.
 
 ```
 git reset
+```
+
+### To jump to a previous commit
+
+```
+git reset <first 7 numbers of a commit hash>
 ```
 
 ---
@@ -202,6 +208,7 @@ graph TD
     A <-- Git status --> B
     A[Working Directory] -- Git add --> B{Staging}
     B -- Git commit --> C[Git Directory]
+    C -- Git reset --> A
     A -- Git init --> C
     B -- Git reset --> A
     C -- Git branch --> D[Branch]
@@ -212,6 +219,76 @@ graph TD
 ```
 
 ---
+
+## **Basic Remote Git Commands**
+
+## Git clone
+
+[Official documentation](https://git-scm.com/docs/git-clone)
+
+### Use to clone down a repository from Github to your local computer. You can either clone the repository into a map with the name of your choice or if no name is put in it will automatically create a map with the name from the repository.
+
+```
+git clone <Link to repository in Github> <Name of map the repository is cloned into>
+```
+
+## Git remote
+
+[Official documentation](https://git-scm.com/docs/git-remote)
+
+### With git remote you can add a "connection" to a Github repository which you can later push your files to.
+
+```
+git remote add <remote> <link to github repository>
+```
+
+### Use this to check the remote you have already set-up
+
+```
+git remote -v
+```
+
+## Git pull
+
+[Official documentation](https://git-scm.com/docs/git-pull)
+
+### Use this to get the latest changes from a Github repository, you pull the files from the repository to your local computer.
+
+```
+git pull
+```
+
+### Use this if you want to pull from a specific branch
+
+```
+git pull <remote> <branch>
+```
+
+## Git push
+
+[Official documentation](https://git-scm.com/docs/git-push)
+
+### Use push to send your commits to a Github repository, other people can then pull your changes you`ve made.
+
+```
+git push
+```
+
+### Use this if you want to push to a specific branch
+
+```
+git push <remote> <branch>
+```
+
+## Git merge
+
+[Official documentation](https://git-scm.com/docs/git-merge)
+
+### You can use merge to put together two or more different branches.
+
+```
+git merge <branch>
+```
 
 ---
 
