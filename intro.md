@@ -28,7 +28,23 @@
 
 ---
 
-## **Usefull Git Commands**
+## **Basic Git Commands**
+
+### Git version - Use to check what version of git you have downloaded
+
+```
+git version
+```
+
+### Git config - Use config to tell git who you are so it can see who is changing, staging files and commiting.
+
+```
+git config --global user.email "you@example.com"
+```
+
+```
+git config --global user.name "Your Name"
+```
 
 ### Git init - Use to start a git repository in your project. Creates a hidden .git file that tracks your other files
 
@@ -58,46 +74,16 @@ git add -A (to add all the changed files)
 git commit -m "..."
 ```
 
-### Git clone - Use to clone a github repository to your local computer
+### Git log - Use see all the commits you have done and all the details to that commit such as timestamp of the commit, date and who made the commit.
 
 ```
-git clone <insert link to repo>
+git log
 ```
 
-### Git config - Use config to tell git who you are so it can see who is changing, staging files and commiting.
+### Git checkout - use to navigate between branches created by git branch. With commits you can through git checkout commit old versions of the file, as a way to revet back to an old version.
 
 ```
-git config --global user.email "you@example.com"
-```
-
-```
-git config --global user.name "Your Name"
-```
-
-### Git remote add - Use to create a connection between you locla files and a github repository. Through this connection you can later push your files through.
-
-```
-git remote add origin <link to repository>
-```
-
-### Git push - Use git push to push your commited files to a repository in github. You can choose to which branch you want to push too.
-
-```
-git push
-```
-
-```
-git push origin <which branch to push to>
-```
-
-### Git pull - Used to pull down files form a repository. For example if a other person have pushed some changes to the repository you can pull those changed down to your local computer.
-
-```
-git pull
-```
-
-```
-git pull origin <which branch to push to>
+git checkout
 ```
 
 ### Git branch - Used to create, view and delete branches.
@@ -106,11 +92,26 @@ git pull origin <which branch to push to>
 git branch <name of branch>
 ```
 
+### Git diff - Use if you want to see the changes you have made compared to your last commit but it will only display changes that are still unstaged. If you have staged all changes git diff won´t display anything.
+
+```
+git diff
+```
+
 ---
 
 ## **Conceptual Drawing**
 
-![Mermaid]
+```mermaid
+graph TD
+    A[Working Directory]
+    A -- Git add --> B{Staging}
+    B -- Git commit --> C[Git Directory]
+    B -- Git reset --> A
+    A -- Git checkout --> A
+    C -- Git checkout --> A
+    C -- Merge --> A
+```
 
 ---
 
@@ -146,4 +147,3 @@ Through Vscode, which I use, merge conflict a relatively easy to fix. It puts in
 [git-url]: https://git-scm.com/
 [node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org/
-[mermaid]: Mermaid-wikimarkdown.png
