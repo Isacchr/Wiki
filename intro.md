@@ -28,7 +28,7 @@
 
 ---
 
-## **Basic Git Commands**
+## **Basic Local Git Commands**
 
 ## Git version
 
@@ -39,6 +39,7 @@
 ```
 git version
 
+git commit -m
 Output:
 git version 2.39.0.windows.1
 ```
@@ -66,6 +67,7 @@ git config --global user.name "Your Name"
 ```
 git init
 
+
 Output:
 Initialized empty Git repository in C:/Wiki/.git/
 ```
@@ -78,6 +80,7 @@ Initialized empty Git repository in C:/Wiki/.git/
 
 ```
 git status
+
 
 Output:
 On branch main
@@ -104,7 +107,16 @@ git add <filename>
 ```
 git add -A (to add all the changed files)
 
-Output:
+
+Output from "git status" after "git add -A":
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   intro.md
+
 ```
 
 ## Git commit
@@ -115,6 +127,15 @@ Output:
 
 ```
 git commit -m "..."
+
+
+
+I typed: git commit -m "small changes to chart and git text"
+
+Output:
+
+[main e911850] small changes to chart and git text
+ 1 file changed, 80 insertions(+), 19 deletions(-)
 ```
 
 ## Git log
@@ -125,16 +146,31 @@ git commit -m "..."
 
 ```
 git log
+
+
+Output from one commit:
+
+commit e9118507e366dcce363815e1b9df42799eac6e1f (HEAD -> main)
+Author: Yourname <your@mail.com>
+Date:   Mon Jan 16 12:43:18 2023 +0100
+
+    small changes to chart and git text
+
 ```
 
 ## Git checkout
 
 [Official documentation](https://git-scm.com/docs/git-checkout)
 
-### Use to navigate between branches created by git branch. With commits you can through git checkout commit old versions of the file, as a way to revet back to an old version.
+### Use to navigate between branches created by git branch. Another use for checkout is when you want to restore a historic version of a specific file, as a way to revert back to an old version.
 
 ```
 git checkout
+
+
+Output if you haven´t created other branches:
+
+fatal: You are on a branch yet to be born
 ```
 
 ## Git branch
@@ -144,17 +180,17 @@ git checkout
 ### Used to create, view and delete branches.
 
 ```
-git branch <name of branch>
+git branch
 ```
 
-## Git diff
+## Git reset
 
-[Official documentation](https://git-scm.com/docs/git-diff)
+[Official documentation](https://git-scm.com/docs/git-reset)
 
-### Use if you want to see the changes you have made compared to your last commit but it will only display changes that are still unstaged. If you have staged all changes git diff won´t display anything.
+### Used to undo local changes to the state of a Git repo. It changes the repository to the previous commit deleting all changes made since that commit.
 
 ```
-git diff
+git reset
 ```
 
 ---
@@ -163,16 +199,19 @@ git diff
 
 ```mermaid
 graph TD
+    A <-- Git status --> B
     A[Working Directory] -- Git add --> B{Staging}
     B -- Git commit --> C[Git Directory]
-    B -- Git reset --> A
     A -- Git init --> C
+    B -- Git reset --> A
     C -- Git branch --> D[Branch]
     C <-- Git checkout --> D
-    C <-- Git config --> C
-    C <-- Git version --> C
+    C <-- Git config, Git log, Git version --> C
+    C -- Git checkout --> A
 
 ```
+
+---
 
 ---
 
